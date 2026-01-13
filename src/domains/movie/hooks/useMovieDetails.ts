@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import type { MovieDetails } from '@/features/MoviePage/types';
-import { apiMovie } from '@/features/MoviePage/api/apiMovie';
+import type { MovieDetails } from '@/domains/movie/types/MovieDetails';
+import { apiMovie } from '@/domains/movie/api/apiMovie';
 
 const useMovieDetails = (movieId: number) => {
   return useQuery<MovieDetails, Error>({

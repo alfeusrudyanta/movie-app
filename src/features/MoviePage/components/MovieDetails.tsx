@@ -1,4 +1,4 @@
-import type { MovieDetailsProps } from '@/features/MoviePage/types';
+import type { MovieDetailsProps } from '@/domains/movie/types/MovieDetails';
 import { getImgUrl } from '@/utils/getImgUrl';
 import { CalendarDays } from 'lucide-react';
 import { MovieActionsAndStats } from './MovieActionsAndStats';

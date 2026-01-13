@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useMovieDetails } from './hooks/useMovieDetails';
+import { useMovieDetails } from '@/domains/movie/hooks/useMovieDetails';
 import { useMovieCredits } from './hooks/useMovieCredits';
 import { MovieDetails } from './components/MovieDetails';
 import { MovieCredits } from './components/MovieCredits';
