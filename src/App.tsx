@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Footer } from '@/components/layout/Footer';
-import { Header } from '@/components/layout/Header';
-import { PRIMARY_NAV_ITEMS } from '@/components/layout/Header/Header.constants';
-import { MoviePage } from '@/pages/MoviePage';
-import { FavoritePage } from '@/pages/FavoritePage';
+import { Footer } from '@/components/layout/footer';
+import { Header } from '@/components/layout/header';
+import { PRIMARY_NAV_ITEMS } from '@/components/layout/header/header.constants';
+import { MoviePage } from '@/pages/movie-page';
+import { FavoritePage } from '@/pages/favorite-page';
 
 function App() {
   return (
@@ -24,4 +24,4 @@ function App() {
   );
 }
 
-export default App;
+export { App };

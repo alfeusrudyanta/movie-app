@@ -1,11 +1,7 @@
 import { CircleChevronRight } from 'lucide-react';
-import { useMovieVideos } from './hooks/useMovieVideos';
+import { useMovieVideos } from './hooks/use-movie-videos';
 import { Button } from '../ui/button';
-
-type WatchMeButtonProps = {
-  movieId: number;
-  className?: string;
-};
+import type { WatchMeButtonProps } from '@/components/watch-me-button/types';
 
 const WatchMeButton: React.FC<WatchMeButtonProps> = ({
   movieId,

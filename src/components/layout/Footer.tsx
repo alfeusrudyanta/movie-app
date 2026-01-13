@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
       <Link to='/'>
         <div className='flex gap-1'>
           <img
-            src='../../public/icon/movie-icon.svg'
+            src='/icon/movie-icon.svg'
             alt='movie-app-icon'
             className='size-7 md:size-10'
           />

@@ -1,1 +1,4 @@
-export type { MovieVideo } from '@/components/watch-me-button/types/MovieVideos';
+export type {
+  MovieVideo,
+  WatchMeButtonProps,
+} from '@/components/watch-me-button/types/movie-videos';

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import type {
   HeaderProps,
   NavItem,
-} from '@/components/layout/Header/Header.types';
+} from '@/components/layout/header/header.types';
 import { cn } from '@/libs/utils';
-import { ToggleMenu } from '@/components/layout/Header/ToggleMenu';
-import { SearchBar } from '@/components/layout/Header/SearchBar';
+import { ToggleMenu } from '@/components/layout/header/toggle-menu';
+import { SearchBar } from '@/components/layout/header/search-bar';
 
 const Header: React.FC<HeaderProps> = ({ navItem }) => {
   const [isScrolling, setIsScrolling] = useState(false);
@@ -38,7 +38,7 @@ const Header: React.FC<HeaderProps> = ({ navItem }) => {
         <Link to='/'>
           <div className='flex gap-1'>
             <img
-              src='../../../../public/icon/movie-icon.svg'
+              src='/icon/movie-icon.svg'
               alt='icon-tv'
               className='size-7 md:size-10'
             />
