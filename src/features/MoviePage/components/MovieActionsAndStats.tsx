@@ -1,4 +1,4 @@
-import { FavoriteMovieButton } from '@/components/favorite-movie-button';
+import { FavoriteMovieButton } from '@/components/FavoriteMovieButton';
 import { WatchMeButton } from '@/components/watch-me-button';
 import { Smile, Star, Video } from 'lucide-react';
 import type { MovieActionsAndStatsProps } from '../types';

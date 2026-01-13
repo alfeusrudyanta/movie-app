@@ -3,6 +3,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Header } from '@/components/layout/Header';
 import { PRIMARY_NAV_ITEMS } from '@/components/layout/Header/Header.constants';
 import { MoviePage } from '@/pages/MoviePage';
+import { FavoritePage } from '@/pages/FavoritePage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <div className='grow'>
           <Routes>
             <Route path='/movie/:id' element={<MoviePage />} />
+            <Route path='/favorites' element={<FavoritePage />} />
           </Routes>
         </div>
 

@@ -49,7 +49,7 @@ const SearchBar: React.FC = () => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={handleKeyPress}
-                    className='text-sm-regular h-full w-full max-w-full text-neutral-500 outline-none'
+                    className='text-sm-regular text-neutral-25 h-full w-full max-w-full outline-none'
                   />
                 </div>
               </div>
@@ -73,7 +73,7 @@ const SearchBar: React.FC = () => {
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         onKeyDown={handleKeyPress}
-        className='text-md-regular h-full w-full text-neutral-500 outline-none'
+        className='text-md-regular text-neutral-25 h-full w-full outline-none'
       />
     </div>
   );

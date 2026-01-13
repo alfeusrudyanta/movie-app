@@ -1,7 +1,1 @@
-import React from 'react';
-
-const FavoritePage = () => {
-  return <div>FavoritePage</div>;
-};
-
-export { FavoritePage };
+export { FavoritePage } from '@/features/FavoritePage';
