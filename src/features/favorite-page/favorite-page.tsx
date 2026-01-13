@@ -1,6 +1,6 @@
 import Cookies from 'js-cookie';
 import { ZeroFavorite } from './components/ZeroFavorite';
-import { FavortieMovieCard } from '@/components/favortie-movie-card';
+import { MovieDetailCard } from '@/components/movie-detail-card';
 import { COOKIE_KEY } from '@/constant/cookie';
 
 const FavoritePage = () => {
@@ -20,7 +20,7 @@ const FavoritePage = () => {
       <div className='flex flex-col gap-8 md:gap-12'>
         {favoriteMoviesId.map((movieId, index) => (
           <div className='flex flex-col gap-8 md:gap-12'>
-            <FavortieMovieCard movieId={movieId} key={movieId} />
+            <MovieDetailCard movieId={movieId} key={movieId} />
             {index < favoriteMoviesId.length - 1 && (
               <div className='w-full border border-neutral-800' />
             )}

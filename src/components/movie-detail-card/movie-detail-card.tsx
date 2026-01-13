@@ -1,4 +1,4 @@
-import type { FavortieMovieCardProps } from '@/components/favortie-movie-card/types';
+import type { MovieDetailCardProps } from '@/components/movie-detail-card/types';
 import { useMovieDetails } from '@/domains/movie/hooks/use-movie-details';
 import { getImgUrl } from '@/utils/get-img-url';
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import { FavoriteMovieButton } from '@/components/favorite-movie-button';
 import { WatchMeButton } from '../watch-me-button';
 import { Star } from 'lucide-react';
 
-const FavortieMovieCard: React.FC<FavortieMovieCardProps> = ({ movieId }) => {
+const MovieDetailCard: React.FC<MovieDetailCardProps> = ({ movieId }) => {
   const { data } = useMovieDetails(movieId);
   if (!data) return;
 
@@ -62,4 +62,4 @@ const FavortieMovieCard: React.FC<FavortieMovieCardProps> = ({ movieId }) => {
   );
 };
 
-export { FavortieMovieCard };
+export { MovieDetailCard };
