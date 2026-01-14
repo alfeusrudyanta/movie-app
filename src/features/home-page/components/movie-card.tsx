@@ -1,3 +1,4 @@
+import { cn } from '@/libs/utils';
 import { getImgUrl } from '@/utils/get-img-url';
 import { Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -21,10 +22,15 @@ const MovieCard: React.FC<MovieCardProps> = ({
 }) => {
   return (
     <Link to={`/movie/${id}`} className='group flex flex-col gap-2 md:gap-3'>
-      <div className='relative h-43.25 cursor-pointer overflow-hidden rounded-md md:h-80.25'>
+      <div
+        className={cn(
+          'relative h-43.25 cursor-pointer overflow-hidden rounded-md md:h-80.25',
+          showNumber && 'w-43.5 md:w-54'
+        )}
+      >
         {/* Number Badge */}
         {showNumber && (
-          <div className='blur-in-xl absolute top-2 left-2 size-8 rounded-full bg-neutral-950/60'>
+          <div className='blur-in-xl absolute top-2 left-2 z-10 flex size-8 items-center justify-center rounded-full bg-neutral-950/60'>
             <p className='text-sm-semibold text-neutral-25 md:text-lg-semibold'>
               {index}
             </p>
@@ -51,7 +57,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
           />
 
           <p className='text-sm-regular md:text-md-regular text-neutral-400'>
-            {vote_average}/10
+            {vote_average.toFixed(1)}/10
           </p>
         </div>
       </div>

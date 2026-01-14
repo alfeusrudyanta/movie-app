@@ -221,6 +221,10 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+/* ---------------------------------------- */
+/* end of shadcn theme */
+/* ---------------------------------------- */
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -235,6 +239,10 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------------------------------------- */
-/* end of shadcn theme */
-/* ---------------------------------------- */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

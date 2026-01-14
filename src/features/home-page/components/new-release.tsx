@@ -13,7 +13,7 @@ const NewRelease: React.FC<NewReleasedMoviesProps> = ({
           New Release
         </h1>
 
-        <div className='grid grid-cols-2 gap-x-4 gap-y-8 md:grid-cols-5 md:gap-x-4 md:gap-y-10'>
+        <div className='grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 md:grid-cols-5 md:gap-x-4 md:gap-y-10'>
           {data?.pages.map((movies) =>
             movies.results.map((movie) => (
               <MovieCard
