@@ -12,7 +12,7 @@ const MovieActionsAndStats: React.FC<MovieActionsAndStatsProps> = ({
   const movieProps = [
     {
       label: 'Rating',
-      desc: `${vote_average?.toFixed(1) || '0'}/10`,
+      desc: `${vote_average || '0'}/10`,
     },
     {
       label: 'Genre',

@@ -39,7 +39,7 @@ const MovieDetailCardContainer: React.FC<MovieDetailCardContainerProps> = ({
                 className='size-4 md:size-6'
               />
               <p className='text-sm-medium md:text-lg-medium text-neutral-25'>
-                {vote_average.toFixed(1)}/10
+                {vote_average}/10
               </p>
             </div>
 
