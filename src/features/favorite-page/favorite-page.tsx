@@ -5,7 +5,17 @@ import { COOKIE_KEY } from '@/constant/cookie';
 
 const FavoritePage = () => {
   const favoriteMovies = Cookies.get(COOKIE_KEY);
-  if (!favoriteMovies) return;
+
+  if (!favoriteMovies)
+    return (
+      <div className='md:px-11xl mt-38.5 flex flex-col gap-8 px-4 md:gap-12'>
+        <h1 className='display-xs-bold text-neutral-25 md:display-lg-bold'>
+          Favorites
+        </h1>
+
+        <ZeroFavorite />
+      </div>
+    );
 
   const favoriteMoviesId: number[] = JSON.parse(favoriteMovies);
 

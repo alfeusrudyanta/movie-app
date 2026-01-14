@@ -3,6 +3,7 @@ import { useMovieSearch } from './hooks/use-movie-search';
 import { MovieDetailCardContainer } from '@/components/movie-detail-card';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import { ZeroSearch } from './components/zero-search';
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -25,10 +26,11 @@ const SearchPage = () => {
 
   return (
     <div className='md:px-11xl mt-38.5 flex flex-col gap-8 px-4 md:gap-12'>
+      {movies.length === 0 && <ZeroSearch />}
+
       {movies.map((movie, index) => (
-        <div className='flex flex-col gap-8 md:gap-12'>
+        <div key={movie.id} className='flex flex-col gap-8 md:gap-12'>
           <MovieDetailCardContainer
-            key={movie.id}
             movieId={movie.id}
             title={movie.title}
             overview={movie.overview}
