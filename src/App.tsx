@@ -4,6 +4,7 @@ import { Header } from '@/components/layout/header';
 import { PRIMARY_NAV_ITEMS } from '@/components/layout/header/header.constants';
 import { MoviePage } from '@/pages/movie-page';
 import { FavoritePage } from '@/pages/favorite-page';
+import { SearchPage } from '@/pages/search-page';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route path='/movie/:id' element={<MoviePage />} />
             <Route path='/favorites' element={<FavoritePage />} />
+            <Route path='/search' element={<SearchPage />} />
           </Routes>
         </div>
 
