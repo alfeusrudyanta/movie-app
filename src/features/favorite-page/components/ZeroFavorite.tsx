@@ -10,6 +10,7 @@ const ZeroFavorite = () => {
           src={movieFavoriteIcon}
           alt='movieFavoriteIcon'
           className='size-50'
+          loading='lazy'
         />
 
         <div className='gap-2 text-center'>

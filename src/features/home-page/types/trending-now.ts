@@ -29,4 +29,18 @@ type TrendingNowMoviesProps = {
   trendingNowMovies: UseQueryResult<TrendingNowMovies, Error>;
 };
 
-export type { TrendingNowMovies, TrendingNowMoviesProps };
+type MovieCardProps = {
+  index?: number;
+  id: number;
+  showNumber?: boolean;
+  poster_path: string;
+  title: string;
+  vote_average: number;
+};
+
+export type {
+  TrendingNowMovie,
+  TrendingNowMovies,
+  TrendingNowMoviesProps,
+  MovieCardProps,
+};

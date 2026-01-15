@@ -1,28 +1,95 @@
-import type { TrendingNowMoviesProps } from '@/features/home-page/types';
+import type {
+  TrendingNowMovie,
+  TrendingNowMoviesProps,
+} from '@/features/home-page/types';
 import { MovieCard } from './movie-card';
+import { useState } from 'react';
+import { getImgUrl } from '@/utils/get-img-url';
+import { WatchMeButton } from '@/components/watch-me-button';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import bgWhite from '/icon/bg-white.jpg';
 
 const TrendingNow: React.FC<TrendingNowMoviesProps> = ({
   trendingNowMovies,
 }) => {
-  return (
-    <div className='flex flex-col gap-6 md:gap-10'>
-      <h1 className='display-xs-bold md:display-lg-bold text-neutral-25 md:mx-11xl mx-3'>
-        Trending Now
-      </h1>
+  const [movie, setMovie] = useState<TrendingNowMovie | undefined>(() => {
+    return trendingNowMovies.data?.results[0];
+  });
 
-      <div className='md:mx-11xl mx-3'>
-        <div className='scrollbar-hide flex gap-4 overflow-x-auto md:gap-5'>
-          {trendingNowMovies.data?.results.map((movie, index) => (
-            <MovieCard
-              key={movie.id}
-              id={movie.id}
-              poster_path={movie.poster_path}
-              title={movie.title}
-              vote_average={movie.vote_average}
-              showNumber={true}
-              index={index + 1}
-            />
-          ))}
+  if (!movie) {
+    return null;
+  }
+
+  const handleMouseHover = (id: number) => {
+    const data =
+      trendingNowMovies.data?.results.find((movie) => movie.id === id) ??
+      undefined;
+
+    setMovie(data);
+  };
+
+  return (
+    <div>
+      {/* Hero */}
+      <div className='relative'>
+        {/* Background Overlay */}
+        <div className='pointer-events-none absolute inset-0 bg-linear-to-b from-transparent to-black' />
+
+        {/* Background Image */}
+        <img
+          src={getImgUrl(movie?.backdrop_path) ?? bgWhite}
+          alt={movie.title}
+          className='min-h-133.25 w-full object-cover'
+          loading='lazy'
+        />
+
+        {/* Trending Now Movie */}
+        <div className='md:mx-11xl absolute bottom-1/16 left-0 mx-4 flex max-w-158.75 flex-col gap-6 md:bottom-1/3 md:gap-12'>
+          <div className='flex flex-col gap-1.5 md:gap-4'>
+            <h1 className='display-xs-bold text-neutral-25 md:display-2xl-bold'>
+              {movie.title}
+            </h1>
+            <p className='md:text-md-regular text-sm-regular line-clamp-5 text-neutral-400 md:line-clamp-3'>
+              {movie.overview}
+            </p>
+          </div>
+
+          <div className='flex flex-col gap-4 md:flex-row'>
+            <WatchMeButton movieId={movie.id} className='md:w-57.5' />
+            <Link to={`/movie/${movie.id}`}>
+              <Button className='border border-neutral-900 bg-neutral-950/60 transition-colors hover:bg-neutral-950 md:w-57.5'>
+                See Detail
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Trending Now List */}
+      <div className='relative z-10 flex flex-col gap-6 md:-mt-12 md:gap-10'>
+        <h1 className='display-xs-bold md:display-lg-bold text-neutral-25 md:mx-11xl mx-4'>
+          Trending Now
+        </h1>
+
+        <div className='md:mx-11xl mx-4'>
+          <div className='scrollbar-hide flex gap-4 overflow-x-auto md:gap-5'>
+            {trendingNowMovies.data?.results.map((movie, index) => (
+              <div
+                key={movie.id}
+                onMouseEnter={() => handleMouseHover(movie.id)}
+              >
+                <MovieCard
+                  id={movie.id}
+                  poster_path={movie.poster_path}
+                  title={movie.title}
+                  vote_average={movie.vote_average}
+                  showNumber={true}
+                  index={index + 1}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

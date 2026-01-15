@@ -32,6 +32,7 @@ const ToggleMenu: React.FC<HeaderProps> = ({ navItem }) => {
                       src='/icon/movie-icon.svg'
                       alt='icon-tv'
                       className='size-7 md:size-10'
+                      loading='lazy'
                     />
                     <p className='text-neutral-25 text-xl-semibold md:display-sm-semibold md:pt-[0.25rem]'>
                       Movie

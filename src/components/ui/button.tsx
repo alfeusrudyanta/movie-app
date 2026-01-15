@@ -14,7 +14,7 @@ const buttonVariants = cva(
         icon: 'rounded-full border border-neutral-900 bg-neutral-950 hover:bg-neutral-900',
       },
       size: {
-        default: 'h-11 md:w-55 md:h-13',
+        default: 'h-11 md:h-13',
         icon: 'size-11 md:size-[3.25rem]',
       },
     },

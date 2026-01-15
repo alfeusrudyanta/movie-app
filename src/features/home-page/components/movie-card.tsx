@@ -2,15 +2,7 @@ import { cn } from '@/libs/utils';
 import { getImgUrl } from '@/utils/get-img-url';
 import { Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-type MovieCardProps = {
-  index?: number;
-  id: number;
-  showNumber?: boolean;
-  poster_path: string;
-  title: string;
-  vote_average: number;
-};
+import type { MovieCardProps } from '@/features/home-page/types';
 
 const MovieCard: React.FC<MovieCardProps> = ({
   index,
@@ -41,6 +33,7 @@ const MovieCard: React.FC<MovieCardProps> = ({
           src={getImgUrl(poster_path)}
           alt={title}
           className='h-full w-full transition-all ease-in-out group-hover:scale-105'
+          loading='lazy'
         />
       </div>
 

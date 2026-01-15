@@ -2,6 +2,7 @@ import { CircleChevronRight } from 'lucide-react';
 import { useMovieVideos } from './hooks/use-movie-videos';
 import { Button } from '../ui/button';
 import type { WatchMeButtonProps } from '@/components/watch-me-button/types';
+import { cn } from '@/libs/utils';
 
 const WatchMeButton: React.FC<WatchMeButtonProps> = ({
   movieId,
@@ -21,7 +22,7 @@ const WatchMeButton: React.FC<WatchMeButtonProps> = ({
   const trailerUrl = `https://www.youtube.com/watch?v=${trailer.key}`;
 
   return (
-    <Button asChild className={className}>
+    <Button asChild className={cn(className, 'md:w-55')}>
       <a href={trailerUrl} target='_blank'>
         Watch Trailer
         <CircleChevronRight className='size-4.5 md:size-6' />

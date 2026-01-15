@@ -25,7 +25,7 @@ const SearchPage = () => {
   const movies = data?.pages.flatMap((page) => page.results) ?? [];
 
   return (
-    <div className='md:px-11xl mt-38.5 flex flex-col gap-8 px-4 md:gap-12'>
+    <div className='md:px-11xl mt-16 flex flex-col gap-8 px-4 pt-4 md:mt-38.5 md:gap-12 md:pt-0'>
       {movies.length === 0 && <ZeroSearch />}
 
       {movies.map((movie, index) => (

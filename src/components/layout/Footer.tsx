@@ -11,6 +11,7 @@ const Footer: React.FC = () => {
             src='/icon/movie-icon.svg'
             alt='movie-app-icon'
             className='size-7 md:size-10'
+            loading='lazy'
           />
           <p className='text-neutral-25 text-xl-semibold md:display-sm-semibold md:pt-[0.25rem]'>
             Movie

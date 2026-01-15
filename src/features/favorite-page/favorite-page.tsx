@@ -8,7 +8,7 @@ const FavoritePage = () => {
 
   if (!favoriteMovies)
     return (
-      <div className='md:px-11xl mt-38.5 flex flex-col gap-8 px-4 md:gap-12'>
+      <div className='md:px-11xl mt-16 flex flex-col gap-8 px-4 md:mt-38.5 md:gap-12'>
         <h1 className='display-xs-bold text-neutral-25 md:display-lg-bold'>
           Favorites
         </h1>
@@ -20,7 +20,7 @@ const FavoritePage = () => {
   const favoriteMoviesId: number[] = JSON.parse(favoriteMovies);
 
   return (
-    <div className='md:px-11xl mt-38.5 flex flex-col gap-8 px-4 md:gap-12'>
+    <div className='md:px-11xl mt-16 flex flex-col gap-8 px-4 md:mt-38.5 md:gap-12'>
       <h1 className='display-xs-bold text-neutral-25 md:display-lg-bold'>
         Favorites
       </h1>

@@ -7,7 +7,7 @@ const NewRelease: React.FC<NewReleasedMoviesProps> = ({
   const { data } = newReleasedMovies;
 
   return (
-    <div className='md:mx-11xl mx-3'>
+    <div className='md:mx-11xl mx-4'>
       <div className='flex flex-col gap-6 md:gap-10'>
         <h1 className='display-xs-bold text-neutral-25 md:display-lg-bold'>
           New Release
