@@ -6,12 +6,14 @@ import { MoviePage } from '@/pages/movie-page';
 import { FavoritePage } from '@/pages/favorite-page';
 import { SearchPage } from '@/pages/search-page';
 import { HomePage } from '@/pages/home-page';
+import { ScrollToTop } from './components/scroll-to-top';
 
 function App() {
   return (
     <BrowserRouter>
       <div className='flex min-h-screen flex-col bg-black'>
         <Header navItem={PRIMARY_NAV_ITEMS} />
+        <ScrollToTop />
 
         <div className='grow'>
           <Routes>
