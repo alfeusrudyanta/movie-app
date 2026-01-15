@@ -5,6 +5,7 @@ import { TrendingNow } from './components/trending-now';
 import { Button } from '@/components/ui/button';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
+import { SpinnerCustom } from '@/components/ui/spinner';
 
 const HomePage = () => {
   const newReleaseQuery = useNewRelease({});
@@ -25,11 +26,7 @@ const HomePage = () => {
   };
 
   if (newReleaseQuery.isLoading || trendingNowQuery.isLoading) {
-    return (
-      <div className='absolute top-1/2 left-1/2 text-center text-[16px] text-white'>
-        Loading...
-      </div>
-    );
+    return <SpinnerCustom />;
   }
 
   return (

@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Footer } from '@/components/layout/footer';
 import { Header } from '@/components/layout/header';
-import { PRIMARY_NAV_ITEMS } from '@/components/layout/header/header.constants';
+import { PRIMARY_NAV_ITEMS } from '@/components/layout/header/constant/header';
 import { MoviePage } from '@/pages/movie-page';
 import { FavoritePage } from '@/pages/favorite-page';
 import { SearchPage } from '@/pages/search-page';

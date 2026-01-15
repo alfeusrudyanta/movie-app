@@ -3,6 +3,7 @@ import { useMovieDetails } from '@/domains/movie/hooks/use-movie-details';
 import { useMovieCredits } from './hooks/use-movie-credits';
 import { MovieDetails } from './components/movie-details';
 import { MovieCredits } from './components/movie-credits';
+import { SpinnerCustom } from '@/components/ui/spinner';
 
 const MoviePage = () => {
   const { id } = useParams<{ id: string }>();
@@ -11,11 +12,7 @@ const MoviePage = () => {
   const creditQuery = useMovieCredits(Number(id));
 
   if (detailQuery.isLoading || creditQuery.isLoading) {
-    return (
-      <div className='absolute top-1/2 left-1/2 text-center text-[16px] text-white'>
-        Loading...
-      </div>
-    );
+    return <SpinnerCustom />;
   }
 
   return (

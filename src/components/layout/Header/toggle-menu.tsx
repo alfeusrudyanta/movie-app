@@ -1,7 +1,4 @@
-import type {
-  HeaderProps,
-  NavItem,
-} from '@/components/layout/header/header.types';
+import type { HeaderProps, NavItem } from '@/components/layout/header/types';
 import useResponsiveToggle from '@/hooks/use-responsive-toggle';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';

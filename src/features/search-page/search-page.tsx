@@ -4,13 +4,20 @@ import { MovieDetailCardContainer } from '@/components/movie-detail-card';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import { ZeroSearch } from './components/zero-search';
+import { SpinnerCustom } from '@/components/ui/spinner';
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('query') ?? '';
 
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
-    useMovieSearch({ query });
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    isFetching,
+    isLoading,
+  } = useMovieSearch({ query });
 
   const { ref, inView } = useInView({
     threshold: 0,
@@ -26,7 +33,9 @@ const SearchPage = () => {
 
   return (
     <div className='md:px-11xl mt-16 flex flex-col gap-8 px-4 pt-4 md:mt-38.5 md:gap-12 md:pt-0'>
-      {movies.length === 0 && <ZeroSearch />}
+      {isLoading && <SpinnerCustom className='-mt-80 md:-mt-60' />}
+
+      {movies.length === 0 && !isFetching && <ZeroSearch />}
 
       {movies.map((movie, index) => (
         <div key={movie.id} className='flex flex-col gap-8 md:gap-12'>
@@ -43,9 +52,7 @@ const SearchPage = () => {
           )}
         </div>
       ))}
-
       <div ref={ref} />
-
       {isFetchingNextPage && <p>Loading...</p>}
     </div>
   );

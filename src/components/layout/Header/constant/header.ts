@@ -1,4 +1,4 @@
-import type { NavItem } from './header.types';
+import type { NavItem } from '@/components/layout/header/types';
 
 const PRIMARY_NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },

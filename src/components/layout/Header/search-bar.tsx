@@ -14,6 +14,9 @@ const SearchBar: React.FC = () => {
     if (searchQuery.trim()) {
       navigate(`/search?query=${encodeURIComponent(searchQuery)}`);
     }
+    if (isMobile) {
+      setIsOpen(false);
+    }
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {

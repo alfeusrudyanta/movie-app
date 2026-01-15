@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import type {
-  HeaderProps,
-  NavItem,
-} from '@/components/layout/header/header.types';
+import type { HeaderProps, NavItem } from '@/components/layout/header/types';
 import { cn } from '@/libs/utils';
 import { ToggleMenu } from '@/components/layout/header/toggle-menu';
 import { SearchBar } from '@/components/layout/header/search-bar';
