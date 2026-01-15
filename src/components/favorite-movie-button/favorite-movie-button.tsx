@@ -4,6 +4,7 @@ import type { FavoriteMovieButtonProps } from './types';
 import { Button } from '../ui/button';
 import { Heart } from 'lucide-react';
 import { COOKIE_KEY } from '@/constant/cookie';
+import { toast } from 'sonner';
 
 const FavoriteMovieButton: React.FC<FavoriteMovieButtonProps> = ({
   movieId,
@@ -36,10 +37,12 @@ const FavoriteMovieButton: React.FC<FavoriteMovieButtonProps> = ({
       const updated = ids.filter((id) => id !== movieId);
       setFavoriteMovieIds(updated);
       setIsLiked(false);
+      toast.success('Success Delete from Favorites');
     } else {
       const updated = [...ids, movieId];
       setFavoriteMovieIds(updated);
       setIsLiked(true);
+      toast.success('Success Add to Favorites');
     }
   };
 
