@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import { ZeroSearch } from './components/zero-search';
 import { SpinnerCustom } from '@/components/ui/spinner';
+import { ServerErrorPage } from '@/components/errors';
 
 const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -17,6 +18,7 @@ const SearchPage = () => {
     isFetchingNextPage,
     isFetching,
     isLoading,
+    isError,
   } = useMovieSearch({ query });
 
   const { ref, inView } = useInView({
@@ -28,6 +30,10 @@ const SearchPage = () => {
       fetchNextPage();
     }
   }, [fetchNextPage, hasNextPage, inView]);
+
+  if (isError) {
+    return <ServerErrorPage />;
+  }
 
   const movies = data?.pages.flatMap((page) => page.results) ?? [];
 

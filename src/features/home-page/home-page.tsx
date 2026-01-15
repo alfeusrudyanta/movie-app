@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { useInView } from 'react-intersection-observer';
 import { useEffect } from 'react';
 import { SpinnerCustom } from '@/components/ui/spinner';
+import { ServerErrorPage } from '@/components/errors';
 
 const HomePage = () => {
   const newReleaseQuery = useNewRelease({});
@@ -24,6 +25,10 @@ const HomePage = () => {
       newReleaseQuery.fetchNextPage();
     }
   };
+
+  if (newReleaseQuery.isError || trendingNowQuery.isError) {
+    return <ServerErrorPage />;
+  }
 
   if (newReleaseQuery.isLoading || trendingNowQuery.isLoading) {
     return <SpinnerCustom />;
