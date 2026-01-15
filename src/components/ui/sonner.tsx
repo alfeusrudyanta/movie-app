@@ -17,7 +17,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       className='toaster group'
       toastOptions={{
         className:
-          'mt-20! backdrop-blur-2xl md:text-md-medium! text-sm-medium! text-white! max-w-132.75! w-full! h-13! bg-black/20!',
+          'md:mt-28.5! mt-20! backdrop-blur-2xl md:text-md-medium! text-sm-medium! text-white! max-w-132.75! w-full! h-13! bg-black/20! px-4! rounded-2xl! flex! justify-center! gap-2!',
         style: {
           background: 'rgba(0, 0, 0, 0.25)',
           backdropFilter: 'blur(8px)',
@@ -26,11 +26,11 @@ const Toaster = ({ ...props }: ToasterProps) => {
         },
       }}
       icons={{
-        success: <CircleCheckIcon className='size-4' />,
-        info: <InfoIcon className='size-4' />,
-        warning: <TriangleAlertIcon className='size-4' />,
-        error: <OctagonXIcon className='size-4' />,
-        loading: <Loader2Icon className='size-4 animate-spin' />,
+        success: <CircleCheckIcon className='size-6' />,
+        info: <InfoIcon className='size-6' />,
+        warning: <TriangleAlertIcon className='size-6' />,
+        error: <OctagonXIcon className='size-6' />,
+        loading: <Loader2Icon className='size-6 animate-spin' />,
       }}
       style={
         {
