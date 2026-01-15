@@ -3,12 +3,13 @@ import type {
   TrendingNowMoviesProps,
 } from '@/features/home-page/types';
 import { MovieCard } from './movie-card';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { getImgUrl } from '@/utils/get-img-url';
 import { WatchMeButton } from '@/components/watch-me-button';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import bgWhite from '/icon/bg-white.jpg';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const TrendingNow: React.FC<TrendingNowMoviesProps> = ({
   trendingNowMovies,
@@ -16,6 +17,7 @@ const TrendingNow: React.FC<TrendingNowMoviesProps> = ({
   const [movie, setMovie] = useState<TrendingNowMovie | undefined>(() => {
     return trendingNowMovies.data?.results[0];
   });
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   if (!movie) {
     return null;
@@ -27,6 +29,24 @@ const TrendingNow: React.FC<TrendingNowMoviesProps> = ({
       undefined;
 
     setMovie(data);
+  };
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -1000,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 1000,
+        behavior: 'smooth',
+      });
+    }
   };
 
   return (
@@ -72,8 +92,23 @@ const TrendingNow: React.FC<TrendingNowMoviesProps> = ({
           Trending Now
         </h1>
 
-        <div className='md:mx-11xl mx-4'>
-          <div className='scrollbar-hide flex gap-4 overflow-x-auto md:gap-5'>
+        <div className='relative'>
+          <div className='absolute right-0 z-10 flex h-full w-[10%] items-center justify-center bg-linear-to-r from-transparent to-black pr-4 text-white'>
+            <Button variant='icon' size='icon' onClick={scrollRight}>
+              <ChevronRight className='size-5.5 md:size-7' />
+            </Button>
+          </div>
+
+          <div className='absolute left-0 z-10 flex h-full w-[10%] items-center justify-center bg-linear-to-l from-transparent to-black pl-4 text-white'>
+            <Button variant='icon' size='icon' onClick={scrollLeft}>
+              <ChevronLeft className='size-5.5 md:size-7' />
+            </Button>
+          </div>
+
+          <div
+            className='scrollbar-hide md:px-11xl flex gap-4 overflow-x-auto px-4 md:gap-5'
+            ref={scrollContainerRef}
+          >
             {trendingNowMovies.data?.results.map((movie, index) => (
               <div
                 key={movie.id}
