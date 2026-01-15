@@ -3,7 +3,7 @@ import type {
   TrendingNowMoviesProps,
 } from '@/features/home-page/types';
 import { MovieCard } from './movie-card';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getImgUrl } from '@/utils/get-img-url';
 import { WatchMeButton } from '@/components/watch-me-button';
 import { Button } from '@/components/ui/button';
@@ -17,7 +17,33 @@ const TrendingNow: React.FC<TrendingNowMoviesProps> = ({
   const [movie, setMovie] = useState<TrendingNowMovie | undefined>(() => {
     return trendingNowMovies.data?.results[0];
   });
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
+
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const checkScrollPosition = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } =
+        scrollContainerRef.current;
+      setShowLeftArrow(scrollLeft > 0);
+      setShowRightArrow(scrollLeft < scrollWidth - clientWidth - 1);
+    }
+  };
+
+  useEffect(() => {
+    const currentRef = scrollContainerRef.current;
+    if (currentRef) {
+      currentRef.addEventListener('scroll', checkScrollPosition);
+      checkScrollPosition();
+    }
+
+    return () => {
+      if (currentRef) {
+        currentRef.removeEventListener('scroll', checkScrollPosition);
+      }
+    };
+  }, [scrollContainerRef]);
 
   if (!movie) {
     return null;
@@ -93,18 +119,21 @@ const TrendingNow: React.FC<TrendingNowMoviesProps> = ({
         </h1>
 
         <div className='relative'>
-          <div className='absolute right-0 z-10 flex h-full w-[10%] items-center justify-center bg-linear-to-r from-transparent to-black pr-4 text-white'>
-            <Button variant='icon' size='icon' onClick={scrollRight}>
-              <ChevronRight className='size-5.5 md:size-7' />
-            </Button>
-          </div>
+          {showRightArrow && (
+            <div className='absolute right-0 z-10 flex h-full w-[10%] items-center justify-center bg-linear-to-r from-transparent to-black pr-4 text-white'>
+              <Button variant='icon' size='icon' onClick={scrollRight}>
+                <ChevronRight className='size-5.5 md:size-7' />
+              </Button>
+            </div>
+          )}
 
-          <div className='absolute left-0 z-10 flex h-full w-[10%] items-center justify-center bg-linear-to-l from-transparent to-black pl-4 text-white'>
-            <Button variant='icon' size='icon' onClick={scrollLeft}>
-              <ChevronLeft className='size-5.5 md:size-7' />
-            </Button>
-          </div>
-
+          {showLeftArrow && (
+            <div className='absolute left-0 z-10 flex h-full w-[10%] items-center justify-center bg-linear-to-l from-transparent to-black pl-4 text-white'>
+              <Button variant='icon' size='icon' onClick={scrollLeft}>
+                <ChevronLeft className='size-5.5 md:size-7' />
+              </Button>
+            </div>
+          )}
           <div
             className='scrollbar-hide md:px-11xl flex gap-4 overflow-x-auto px-4 md:gap-5'
             ref={scrollContainerRef}

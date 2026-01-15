@@ -1,1 +1,0 @@
-create left right button on mainpage
